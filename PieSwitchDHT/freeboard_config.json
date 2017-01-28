@@ -1,0 +1,147 @@
+{
+ "version": "application/octet-stream",
+ "allow_edit": true,
+ "plugins": [],
+ "panes": [
+  {
+   "width": 1,
+   "row": {
+    "3": 1
+   },
+   "col": {
+    "3": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "FeedView",
+     "settings": {
+      "datasource": "datasources[\"dhtFeed\"][\"data\"]",
+      "type": "line",
+      "color": "",
+      "marker": true,
+      "multipleaxis": true,
+      "autogap": false,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "3": 11,
+    "5": 5
+   },
+   "col": {
+    "3": 3,
+    "5": 3
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "Toggle",
+     "settings": {
+      "caption": "Switch1",
+      "state": "datasources[\"switchDS\"][\"/{APPID}/state1\"]==\"1\"",
+      "ontext": "ON",
+      "offtext": "OFF",
+      "onaction": "microgear['switchDS'].chat(\"pieswitch\",\"11\")",
+      "offaction": "microgear['switchDS'].chat(\"pieswitch\",\"10\")",
+      "onCreatedAction": "microgear['switchDS'].chat(\"pieswitch\",\"1?\")"
+     }
+    },
+    {
+     "type": "Toggle",
+     "settings": {
+      "caption": "Switch2",
+      "state": "datasources[\"switchDS\"][\"/{APPID}/state2\"]==\"1\"",
+      "ontext": "ON",
+      "offtext": "OFF",
+      "onaction": "microgear['switchDS'].chat(\"pieswitch\",\"21\")",
+      "offaction": "microgear['switchDS'].chat(\"pieswitch\",\"20\")",
+      "onCreatedAction": "microgear['switchDS'].chat(\"pieswitch\",\"2?\")"
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "3": 11,
+    "5": 5
+   },
+   "col": {
+    "3": 1,
+    "5": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Temp",
+      "value": "datasources[\"switchDS\"][\"{APPID}/dht\"].split(',')[0]",
+      "units": "C",
+      "min_value": 0,
+      "max_value": "50"
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "3": 11,
+    "5": 5
+   },
+   "col": {
+    "3": 2,
+    "5": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Humid",
+      "value": "datasources[\"switchDS\"][\"{APPID}/dht\"].split(',')[1]",
+      "units": "%",
+      "min_value": 0,
+      "max_value": 100
+     }
+    }
+   ]
+  }
+ ],
+ "datasources": [
+  {
+   "name": "switchDS",
+   "type": "netpie_microgear",
+   "settings": {
+    "name": "switchDS",
+    "appid": "{APPID}",
+    "key": "{KEY}",
+    "secret": "{SECRET}",
+    "topics": "/#"
+   }
+  },
+  {
+   "name": "dhtFeed",
+   "type": "netpie_feed",
+   "settings": {
+    "name": "dhtFeed",
+    "feedid": "{FEEDID}",
+    "apikey": "{FEED_APIKEY}",
+    "granularity_value": "1",
+    "granularity_unit": "minutes",
+    "since_value": "1",
+    "since_unit": "hours",
+    "interval": "15"
+   }
+  }
+ ],
+ "columns": 3,
+ "theme": "default"
+}
