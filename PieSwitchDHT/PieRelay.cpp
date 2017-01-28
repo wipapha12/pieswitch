@@ -28,11 +28,13 @@ int PieRelay::getState() {
 }
 
 void PieRelay::setState(int state) {
-  this->state = state;
-  EEPROM.write(EEPROM_OFFSET+this->channel, this->state);
-  EEPROM.commit();  
-  digitalWrite(this->relayPin, this->state);
-  this->cb_statechange(this->channel, STATECHANGE, this->state);
+  if (this->state != state) {
+    this->state = state;
+    EEPROM.write(EEPROM_OFFSET+this->channel, this->state);
+    EEPROM.commit();  
+    digitalWrite(this->relayPin, this->state);
+    this->cb_statechange(this->channel, STATECHANGE, this->state);
+  }
 }
 
 PieRelay::PieRelay(int channel, int relayPin, int buttonPin) {
