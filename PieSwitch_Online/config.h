@@ -1,4 +1,4 @@
-#define WIFI_SSID		   "{SSID}"
+#define WIFI_SSID      "{SSID}"
 #define WIFI_PASSWORD  "{WIFI_PASSWORD}"
 
 #define APPID          "{APPID}"
