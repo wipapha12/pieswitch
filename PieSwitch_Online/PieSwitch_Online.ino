@@ -6,10 +6,10 @@
 #include <ESP8266WiFi.h>
 #include <MicroGear.h>
 
-#define RELAYPIN1  12
-#define RELAYPIN2  13
-#define BUTTONPIN1 0
-#define BUTTONPIN2 2
+#define RELAYPIN1  13
+#define RELAYPIN2  12
+#define BUTTONPIN1 2
+#define BUTTONPIN2 0
 
 const char* ssid     = WIFI_SSID;
 const char* password = WIFI_PASSWORD;

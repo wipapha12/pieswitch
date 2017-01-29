@@ -11,10 +11,10 @@
 #define DHTPIN      14
 #define DHTTYPE     DHT11
 
-#define RELAYPIN1  12
-#define RELAYPIN2  13
-#define BUTTONPIN1 0
-#define BUTTONPIN2 2
+#define RELAYPIN1  13
+#define RELAYPIN2  12
+#define BUTTONPIN1 2
+#define BUTTONPIN2 0
 
 #ifdef ENABLE_DHT
 DHT dht(DHTPIN, DHTTYPE);

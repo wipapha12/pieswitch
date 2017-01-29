@@ -5,6 +5,3 @@
 #define KEY            "{KEY}"
 #define SECRET         "{SECRET}"
 #define ALIAS          "{ALIAS}"
-
-#define FEEDID         "{FEEDID}"
-#define FEEDAPIKEY     "{FEEDAPIKEY}"

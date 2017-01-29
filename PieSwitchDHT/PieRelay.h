@@ -6,7 +6,7 @@
 #define STATECHANGE   1
 #define MAXRELAY      4
 #define BUTTONLOCKMS  400
-#define EEPROM_OFFSET 512
+#define EEPROM_OFFSET 128
 
 class PieRelay {
   public :

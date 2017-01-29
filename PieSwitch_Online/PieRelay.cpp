@@ -47,7 +47,7 @@ PieRelay::PieRelay(int channel, int relayPin, int buttonPin) {
   this->lastPressed = 0;
   this->cb_statechange = NULL;
 
-//    EEPROM.begin(1024);
+  EEPROM.begin(512);
 
   pinMode(relayPin, OUTPUT);
   pinMode(buttonPin, INPUT);
